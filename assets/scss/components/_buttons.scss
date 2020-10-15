@@ -7,16 +7,16 @@ $color-names: 'primary', 'neutral', 'success', 'info', 'danger', 'warning';
   &.no-shadow {
     @apply shadow-none;
     &:before {
-      display: none!important;
+      display: none !important;
     }
     &:hover {
       &:before {
-        display: none!important;
+        display: none !important;
       }
     }
     &:active {
       &:before {
-        display: none!important;
+        display: none !important;
       }
     }
   }
