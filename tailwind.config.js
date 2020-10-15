@@ -1,4 +1,4 @@
-module.exports = ({ dev, rootDir, srcDir }) => ({
+module.exports = {
   future: {
     removeDeprecatedGapUtilities: true,
     purgeLayersByDefault: true,
@@ -9,8 +9,35 @@ module.exports = ({ dev, rootDir, srcDir }) => ({
   dark: 'class',
   theme: {
     darkSelector: '.dark-mode',
+    // boxShadow: {
+    //   default: '0 10px 20px -10px rgba(0, 0, 0, .25)',
+    // },
     extend: {
+      borderRadius: {
+        none: '0',
+        sm: '0.125rem',
+        default: '0.25rem',
+        md: '0.5rem',
+        lg: '0.75rem',
+        xl: '1rem',
+      },
       colors: {
+        primary: {
+          default: '#ff4757',
+          hover: '#d43446',
+          active: '#ff5e6c',
+          disabled: '#ff7f8a',
+          'gr-from': '#ff4757',
+          'gr-to': '#d43446',
+        },
+        neutral: {
+          default: '#2f2f2f',
+          hover: '#212121',
+          active: '#353535',
+          disabled: '#666666',
+          'gr-from': '#2f2f2f',
+          'gr-to': '#212121',
+        },
         success: {
           default: '#8BC34A',
           hover: '#4CAF50',
@@ -49,30 +76,20 @@ module.exports = ({ dev, rootDir, srcDir }) => ({
       },
     },
   },
-  variants: {
-    backgroundColor: [
-      'dark',
-      'dark-hover',
-      'dark-group-hover',
-      'dark-even',
-      'dark-odd',
-    ],
-    borderColor: ['dark', 'dark-focus', 'dark-focus-within'],
-    textColor: ['dark', 'dark-hover', 'dark-active'],
-  },
-  plugins: [require('tailwindcss-dark-mode')()],
+  variants: {},
+  plugins: [],
   purge: {
     // Learn more on https://tailwindcss.com/docs/controlling-file-size/#removing-unused-css
-    enabled: !dev,
+    enabled: process.env.NODE_ENV === 'production',
     layers: ['utilities'],
     content: [
-      `${srcDir}/components/**/*.vue`,
-      `${srcDir}/layouts/**/*.vue`,
-      `${srcDir}/pages/**/*.vue`,
-      `${srcDir}/plugins/**/*.js`,
-      `${rootDir}/nuxt.config.js`,
+      'components/**/*.vue',
+      'layouts/**/*.vue',
+      'pages/**/*.vue',
+      'plugins/**/*.js',
+      'nuxt.config.js',
       // TypeScript
-      `${srcDir}/plugins/**/*.ts`,
+      'plugins/**/*.ts',
     ],
   },
-})
+}

@@ -16,7 +16,14 @@
       "~/*": ["./*"],
       "@/*": ["./*"]
     },
-    "types": ["@types/node", "@nuxt/types", "@nuxt/content", "@nuxtjs/date-fns"]
+    "types": [
+      "@types/node",
+      "@nuxt/types",
+      "nuxt-i18n",
+      "@nuxtjs/auth-next",
+      "@nuxt/content",
+      "@nuxtjs/date-fns"
+    ]
   },
   "include": ["**/*.ts", "**/*.vue"],
   "exclude": ["node_modules", ".nuxt", "dist"]

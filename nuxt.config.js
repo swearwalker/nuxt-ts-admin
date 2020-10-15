@@ -43,10 +43,6 @@ export default {
     },
   ],
 
-  // Auto import components (https://go.nuxtjs.dev/config-components)
-  components: true,
-  content: {},
-
   // Modules for dev and build (recommended) (https://go.nuxtjs.dev/config-modules)
   buildModules: [
     // https://go.nuxtjs.dev/typescript
@@ -71,7 +67,7 @@ export default {
   ],
   tailwindcss: {
     cssPath: '@/assets/scss/tailwind.scss',
-    configPath: 'tailwind.config.js',
+    configPath: '@/tailwind.config.js',
     exposeConfig: false,
   },
 
@@ -126,6 +122,12 @@ export default {
   //     },
   //   },
   // },
+
+  colorMode: {
+    preference: 'dark',
+    fallback: 'dark',
+    classSuffix: '',
+  },
 
   svgSprite: {
     input: '~/static/icons',
