@@ -1,5 +1,6 @@
 <template>
   <main id="main" class="flex items-center m-4">
+    {{ practiceData }}
     <v-btn
       class="mx-4"
       :color="btnColorsEnums.PRIMARY"
@@ -46,8 +47,11 @@
 <script lang="ts">
 import { Vue, Component } from 'vue-property-decorator'
 
+import practiceStubs from '@/stubs/practice'
 import VBtn from '~/components/common/v-btn.vue'
 import { VBtnColorsEnums, VBtnModesEnums, IconsEnums } from '~/enums/common'
+
+import { PracticeDto } from '~/types/admin'
 
 @Component({
   components: {
@@ -58,6 +62,8 @@ export default class IndexPage extends Vue {
   readonly btnColorsEnums = VBtnColorsEnums
   readonly btnModesEnums = VBtnModesEnums
   readonly iconsEnums = IconsEnums
+
+  practiceData: PracticeDto = practiceStubs[0]
 }
 </script>
 
