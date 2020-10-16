@@ -4,6 +4,7 @@
     :class="[
       { 'btn__no-title': icon && !title, 'no-shadow': noShadow },
       'btn-' + (disabled ? color + '-disabled' : color),
+      mode,
     ]"
     class="btn"
     :to="localePath(to)"
@@ -24,7 +25,7 @@
 <script lang="ts">
 import { Vue, Component, Prop } from 'vue-property-decorator'
 import { RawLocation } from 'vue-router'
-import { VBtnDto } from '~/types/common/v-btn.dto'
+import { VBtnDto } from '@/types/common/v-btn.dto'
 
 @Component
 export default class VBtn extends Vue implements VBtnDto {
@@ -39,6 +40,9 @@ export default class VBtn extends Vue implements VBtnDto {
 
   @Prop()
   readonly title?: string
+
+  @Prop()
+  readonly mode?: string
 
   @Prop()
   readonly reverse?: boolean

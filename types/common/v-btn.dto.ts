@@ -1,8 +1,9 @@
-import { RawLocation } from 'vue-router/types/router'
+import { RawLocation } from 'vue-router'
 
 export interface VBtnDto {
   to?: RawLocation
   color?: string
+  mode?: string
   icon?: string
   title?: string
   reverse?: boolean

@@ -35,25 +35,53 @@ $color-names: 'primary', 'neutral', 'success', 'info', 'danger', 'warning';
 }
 
 @each $name in $color-names {
-  .btn.btn-#{$name} {
-    @apply bg-gradient-to-tr from-#{$name}-gr-from to-#{$name}-gr-to;
+  .btn.btn-#{$name}-disabled {
+    @apply bg-#{$name}-disabled;
+  }
+  .btn.btn-#{$name}.border {
+    background-image: none;
+    @apply border-2 border-#{$name} text-#{$name} shadow-none;
     &:before {
-      @include shadow-bg;
+      display: none !important;
     }
     &:hover {
       transform: translateY(-0.125rem);
+      @apply border-#{$name}-hover text-#{$name}-hover;
       &:before {
-        @include shadow-bg-hover;
+        display: none !important;
       }
     }
     &:active {
       transform: translateY(-0.125rem);
+      @apply border-#{$name}-active text-#{$name}-active;
       &:before {
-        @include shadow-bg-active;
+        display: none !important;
       }
     }
   }
-  .btn.btn-#{$name}-mono {
+  .btn.btn-#{$name}.link {
+    background-image: none;
+    @apply text-#{$name} shadow-none;
+    &:before {
+      display: none !important;
+    }
+    &:hover {
+      transform: translateY(-0.125rem);
+      @apply text-#{$name}-hover;
+      &:before {
+        display: none !important;
+      }
+    }
+    &:active {
+      transform: translateY(-0.125rem);
+      @apply text-#{$name}-active;
+      &:before {
+        display: none !important;
+      }
+    }
+  }
+  .btn.btn-#{$name}.mono {
+    background-image: none;
     @apply bg-#{$name};
     &:before {
       @include shadow-bg;
@@ -73,7 +101,22 @@ $color-names: 'primary', 'neutral', 'success', 'info', 'danger', 'warning';
       }
     }
   }
-  .btn.btn-#{$name}-disabled {
-    @apply bg-#{$name}-disabled;
+  .btn.btn-#{$name} {
+    @apply bg-gradient-to-tr from-#{$name}-gr-from to-#{$name}-gr-to;
+    &:before {
+      @include shadow-bg;
+    }
+    &:hover {
+      transform: translateY(-0.125rem);
+      &:before {
+        @include shadow-bg-hover;
+      }
+    }
+    &:active {
+      transform: translateY(-0.125rem);
+      &:before {
+        @include shadow-bg-active;
+      }
+    }
   }
 }
