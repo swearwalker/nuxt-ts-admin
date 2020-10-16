@@ -25,24 +25,30 @@
 <script lang="ts">
 import { Vue, Component, Prop } from 'vue-property-decorator'
 import { RawLocation } from 'vue-router'
-import { VBtnDto } from '@/types/common/v-btn.dto'
+import { VBtnDto } from '@/types/common'
+import {
+  VBtnColorsEnums,
+  VBtnModesEnums,
+  VBtnTypesEnums,
+  IconsEnums,
+} from '~/enums/common'
 
 @Component
 export default class VBtn extends Vue implements VBtnDto {
   @Prop()
   readonly to?: RawLocation
 
-  @Prop({ default: 'neutral' })
-  readonly color?: string
+  @Prop({ default: VBtnColorsEnums.NEUTRAL })
+  readonly color?: VBtnColorsEnums
 
   @Prop()
-  readonly icon?: string
+  readonly icon?: IconsEnums
 
   @Prop()
   readonly title?: string
 
   @Prop()
-  readonly mode?: string
+  readonly mode?: VBtnModesEnums
 
   @Prop()
   readonly reverse?: boolean
@@ -53,8 +59,8 @@ export default class VBtn extends Vue implements VBtnDto {
   @Prop({ default: false })
   readonly disabled?: boolean
 
-  get componentType(): string {
-    return this.to ? 'nuxt-link' : 'button'
+  get componentType(): VBtnTypesEnums {
+    return this.to ? VBtnTypesEnums.LINK : VBtnTypesEnums.BTN
   }
 
   get textMargin(): string {
