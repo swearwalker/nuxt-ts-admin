@@ -8,14 +8,14 @@
     "start": "nuxt-ts start",
     "generate": "nuxt-ts generate",
     "lint": "eslint --ext .ts,.js,.vue --ignore-path .gitignore .",
-    "lint:fix": "eslint --fix --ext .ts,.js,.vue --ignore-path .gitignore .",
+    "lint:f": "eslint --fix --ext .ts,.js,.vue --ignore-path .gitignore .",
     "prettier": "prettier -c \"./**/*.{vue,ts,js,css,scss,json}\" --ignore-path .gitignore",
-    "prettier:write": "npm run prettier -- --write"
+    "prettier:w": "npm run prettier -- --write"
   },
   "lint-staged": {
     "*.{ts,js,vue}": [
-      "npm run prettier:write",
-      "npm run lint:fix"
+      "npm run prettier:w",
+      "npm run lint:f"
     ]
   },
   "husky": {
@@ -53,12 +53,12 @@
     "@nuxtjs/tailwindcss": "^3.1.0",
     "babel-eslint": "^10.1.0",
     "eslint": "^7.11.0",
-    "eslint-config-prettier": "^6.12.0",
+    "eslint-config-prettier": "^6.13.0",
     "eslint-loader": "^4.0.2",
     "eslint-plugin-nuxt": "^1.0.0",
     "eslint-plugin-prettier": "^3.1.4",
     "husky": "^4.3.0",
-    "lint-staged": "^10.4.0",
+    "lint-staged": "^10.4.2",
     "node-sass": "^4.14.1",
     "prettier": "^2.1.2",
     "sass-loader": "^10.0.3",
