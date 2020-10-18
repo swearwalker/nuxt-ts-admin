@@ -2,13 +2,17 @@
   <component
     :is="componentType"
     :class="[
-      { 'btn__no-title': icon && !title, 'no-shadow': noShadow },
-      'btn-' + (disabled ? color + '-disabled' : color),
-      mode,
+      {
+        'no-title': icon && !title,
+        'no-shadow': noShadow,
+        disabled: disabled,
+      },
+      buttonMode,
     ]"
     class="btn"
     :to="localePath(to)"
     :disabled="disabled"
+    @click="click"
   >
     <div :class="{ btn__reverse: reverse }" class="btn__content">
       <slot v-if="$slots.default" />
@@ -23,7 +27,7 @@
 </template>
 
 <script lang="ts">
-import { Vue, Component, Prop } from 'vue-property-decorator'
+import { Vue, Component, Prop, Emit } from 'vue-property-decorator'
 import { RawLocation } from 'vue-router'
 import { VBtnDto } from '@/types/common'
 import {
@@ -66,6 +70,21 @@ export default class VBtn extends Vue implements VBtnDto {
   get textMargin(): string {
     return this.icon ? (this.reverse ? 'mr-2' : 'ml-2') : ''
   }
+
+  get buttonMode(): string {
+    if (VBtnModesEnums.BORDER === this.mode) {
+      return `btn-${this.color}-${VBtnModesEnums.BORDER}`
+    } else if (VBtnModesEnums.LINK === this.mode) {
+      return `btn-${this.color}-${VBtnModesEnums.LINK}`
+    } else if (VBtnModesEnums.MONO === this.mode) {
+      return `btn-${this.color}-${VBtnModesEnums.MONO}`
+    } else {
+      return `btn-${this.color}`
+    }
+  }
+
+  @Emit('click')
+  click() {}
 }
 </script>
 

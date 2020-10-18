@@ -12,4 +12,5 @@ export interface VBtnDto {
   disabled?: boolean
   componentType: VBtnTypesEnums
   textMargin: string
+  buttonMode: string
 }

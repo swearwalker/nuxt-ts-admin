@@ -3,7 +3,7 @@ $color-names: 'primary', 'neutral', 'success', 'info', 'danger', 'warning';
 .btn {
   transition: all 0.125s ease-in-out;
   z-index: 2;
-  @apply flex py-2 px-4 shadow text-sm font-medium cursor-pointer relative whitespace-no-wrap text-light leading-4 rounded-lg;
+  @apply flex py-2 px-4 shadow text-sm font-medium cursor-pointer relative whitespace-no-wrap leading-4 rounded-lg;
   &.no-shadow {
     @apply shadow-none;
     &:before {
@@ -20,7 +20,25 @@ $color-names: 'primary', 'neutral', 'success', 'info', 'danger', 'warning';
       }
     }
   }
-  &__no-title {
+  &.disabled {
+    @apply opacity-50 text-light cursor-default;
+    &:before {
+      display: none !important;
+    }
+    &:hover {
+      transform: translateY(0)!important;
+      &:before {
+        display: none !important;
+      }
+    }
+    &:active {
+      transform: translateY(0)!important;
+      &:before {
+        display: none !important;
+      }
+    }
+  }
+  &.no-title {
     @apply px-2;
   }
   &__reverse {
@@ -35,54 +53,27 @@ $color-names: 'primary', 'neutral', 'success', 'info', 'danger', 'warning';
 }
 
 @each $name in $color-names {
-  .btn.btn-#{$name}-disabled {
-    @apply bg-#{$name}-disabled;
-  }
-  .btn.btn-#{$name}.border {
-    background-image: none;
+  .btn.btn-#{$name}-border {
     @apply border-2 border-#{$name} text-#{$name} shadow-none;
-    &:before {
-      display: none !important;
-    }
     &:hover {
-      transform: translateY(-0.125rem);
       @apply border-#{$name}-hover text-#{$name}-hover;
-      &:before {
-        display: none !important;
-      }
     }
     &:active {
-      transform: translateY(-0.125rem);
       @apply border-#{$name}-active text-#{$name}-active;
-      &:before {
-        display: none !important;
-      }
     }
   }
-  .btn.btn-#{$name}.link {
-    background-image: none;
+  .btn.btn-#{$name}-link {
     @apply text-#{$name} shadow-none;
-    &:before {
-      display: none !important;
-    }
     &:hover {
-      transform: translateY(-0.125rem);
       @apply text-#{$name}-hover;
-      &:before {
-        display: none !important;
-      }
     }
     &:active {
-      transform: translateY(-0.125rem);
       @apply text-#{$name}-active;
-      &:before {
-        display: none !important;
-      }
     }
   }
-  .btn.btn-#{$name}.mono {
+  .btn.btn-#{$name}-mono {
     background-image: none;
-    @apply bg-#{$name};
+    @apply bg-#{$name} text-light;
     &:before {
       @include shadow-bg;
     }
@@ -102,7 +93,7 @@ $color-names: 'primary', 'neutral', 'success', 'info', 'danger', 'warning';
     }
   }
   .btn.btn-#{$name} {
-    @apply bg-gradient-to-tr from-#{$name}-gr-from to-#{$name}-gr-to;
+    @apply bg-gradient-to-tr from-#{$name}-gr-from to-#{$name}-gr-to text-light;
     &:before {
       @include shadow-bg;
     }

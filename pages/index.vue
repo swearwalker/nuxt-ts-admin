@@ -1,5 +1,5 @@
 <template>
-  <main id="main" class="flex items-center m-4">
+  <main id="main" class="flex items-center m-4 pt-16">
     <v-btn
       class="mx-4"
       :color="btnColorsEnums.PRIMARY"

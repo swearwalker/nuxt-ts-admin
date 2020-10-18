@@ -100,28 +100,26 @@ export default {
     seo: true,
     defaultLocale: 'en',
   },
-
-  // TODO: default auth config
-  // auth: {
-  //   strategies: {
-  //     local: {
-  //       token: {
-  //         property: 'token',
-  //         required: true,
-  //         type: '',
-  //       },
-  //       user: {
-  //         property: false,
-  //         autoFetch: true,
-  //       },
-  //       endpoints: {
-  //         login: { url: '/auth/login', method: 'post' },
-  //         logout: { url: '/auth/logout', method: 'post' },
-  //         user: { url: '/auth/user', method: 'get' },
-  //       },
-  //     },
-  //   },
-  // },
+  auth: {
+    strategies: {
+      local: {
+        token: {
+          property: 'token',
+          required: true,
+          type: '',
+        },
+        user: {
+          property: false,
+          autoFetch: true,
+        },
+        endpoints: {
+          login: { url: '/auth/login', method: 'post' },
+          logout: { url: '/auth/logout', method: 'post' },
+          user: { url: '/auth/user', method: 'get' },
+        },
+      },
+    },
+  },
 
   colorMode: {
     preference: 'dark',
@@ -154,8 +152,7 @@ export default {
       }
     },
   },
-  // TODO: default auth middleware
-  // router: {
-  //   middleware: ['auth'],
-  // },
+  router: {
+    middleware: ['auth'],
+  },
 }

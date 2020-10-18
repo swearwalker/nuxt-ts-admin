@@ -52,7 +52,7 @@ module.exports = {
           active: '#2196F3',
           disabled: '#81D4FA',
           'gr-from': '#03A9F4',
-          'gr-to': '#2196F3',
+          'gr-to': '#071c2d',
         },
         danger: {
           default: '#FF5722',
