@@ -5,8 +5,8 @@
   >
     <v-btn
       class="uppercase"
-      :color="btnColorsEnums.PRIMARY"
-      :mode="btnModesEnums.LINK"
+      :color="colorsEnums.PRIMARY"
+      :mode="modesEnums.LINK"
       :title="$t('header.name')"
     />
     <user-drop-down v-if="$auth.loggedIn" />
@@ -18,7 +18,7 @@ import { Vue, Component } from 'vue-property-decorator'
 
 import VBtn from '~/components/common/v-btn.vue'
 import UserDropDown from '~/components/common/user-drop-down.vue'
-import { VBtnColorsEnums, VBtnModesEnums } from '~/enums/common'
+import { ColorsEnums, ModesEnums } from '~/enums/common'
 
 @Component({
   components: {
@@ -27,8 +27,8 @@ import { VBtnColorsEnums, VBtnModesEnums } from '~/enums/common'
   },
 })
 export default class Header extends Vue {
-  readonly btnColorsEnums = VBtnColorsEnums
-  readonly btnModesEnums = VBtnModesEnums
+  readonly colorsEnums = ColorsEnums
+  readonly modesEnums = ModesEnums
 }
 </script>
 

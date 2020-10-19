@@ -2,20 +2,16 @@
   <main id="main" class="flex items-center m-4 pt-16">
     <v-btn
       class="mx-4"
-      :color="btnColorsEnums.PRIMARY"
+      :color="colorsEnums.PRIMARY"
       to="index"
-      :mode="btnModesEnums.MONO"
+      :mode="modesEnums.MONO"
       title="link"
     />
     <v-btn class="mx-4" title="button" />
+    <v-btn class="mx-4" :color="colorsEnums.SUCCESS" :icon="iconsEnums.HOME" />
     <v-btn
       class="mx-4"
-      :color="btnColorsEnums.SUCCESS"
-      :icon="iconsEnums.HOME"
-    />
-    <v-btn
-      class="mx-4"
-      :color="btnColorsEnums.INFO"
+      :color="colorsEnums.INFO"
       :disabled="true"
       :icon="iconsEnums.HOME"
       title="title"
@@ -23,23 +19,21 @@
     <v-btn
       no-shadow="true"
       class="mx-4"
-      :color="btnColorsEnums.DANGER"
+      :color="colorsEnums.DANGER"
       reverse="true"
       icon="home-line"
       title="title"
     />
     <v-btn
-      :mode="btnModesEnums.BORDER"
+      :mode="modesEnums.BORDER"
       class="mx-4"
-      :color="btnColorsEnums.WARNING"
+      :color="colorsEnums.WARNING"
       title="title"
     />
-    <v-btn
-      :mode="btnModesEnums.LINK"
-      class="mx-4"
-      :color="btnColorsEnums.PRIMARY"
+    <v-btn :mode="modesEnums.LINK" class="mx-4" :color="colorsEnums.PRIMARY"
       ><span>Custom title</span></v-btn
     >
+    <v-toggle v-model="test" />
   </main>
 </template>
 
@@ -47,17 +41,21 @@
 import { Vue, Component } from 'vue-property-decorator'
 
 import VBtn from '~/components/common/v-btn.vue'
-import { VBtnColorsEnums, VBtnModesEnums, IconsEnums } from '~/enums/common'
+import VToggle from '~/components/common/v-toggle.vue'
+import { ColorsEnums, ModesEnums, IconsEnums } from '~/enums/common'
 
 @Component({
   components: {
     VBtn,
+    VToggle,
   },
 })
 export default class IndexPage extends Vue {
-  readonly btnColorsEnums = VBtnColorsEnums
-  readonly btnModesEnums = VBtnModesEnums
+  readonly colorsEnums = ColorsEnums
+  readonly modesEnums = ModesEnums
   readonly iconsEnums = IconsEnums
+
+  test: boolean = true
 }
 </script>
 

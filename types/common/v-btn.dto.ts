@@ -1,10 +1,10 @@
-import { RawLocation } from 'vue-router'
-import { VBtnTypesEnums, VBtnColorsEnums, VBtnModesEnums } from '~/enums/common'
+import { Location } from 'vue-router'
+import { VBtnTypesEnums, ColorsEnums, ModesEnums } from '~/enums/common'
 
 export interface VBtnDto {
-  to?: RawLocation
-  color?: VBtnColorsEnums
-  mode?: VBtnModesEnums
+  to?: string | Location
+  color?: ColorsEnums
+  mode?: ModesEnums
   icon?: string
   title?: string
   reverse?: boolean

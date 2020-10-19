@@ -28,11 +28,11 @@
 
 <script lang="ts">
 import { Vue, Component, Prop, Emit } from 'vue-property-decorator'
-import { RawLocation } from 'vue-router'
+import { Location } from 'vue-router'
 import { VBtnDto } from '@/types/common'
 import {
-  VBtnColorsEnums,
-  VBtnModesEnums,
+  ColorsEnums,
+  ModesEnums,
   VBtnTypesEnums,
   IconsEnums,
 } from '~/enums/common'
@@ -40,10 +40,10 @@ import {
 @Component
 export default class VBtn extends Vue implements VBtnDto {
   @Prop()
-  readonly to?: RawLocation
+  readonly to?: string | Location
 
-  @Prop({ default: VBtnColorsEnums.NEUTRAL })
-  readonly color?: VBtnColorsEnums
+  @Prop({ default: ColorsEnums.NEUTRAL })
+  readonly color?: ColorsEnums
 
   @Prop()
   readonly icon?: IconsEnums
@@ -52,7 +52,7 @@ export default class VBtn extends Vue implements VBtnDto {
   readonly title?: string
 
   @Prop()
-  readonly mode?: VBtnModesEnums
+  readonly mode?: ModesEnums
 
   @Prop()
   readonly reverse?: boolean
@@ -72,12 +72,12 @@ export default class VBtn extends Vue implements VBtnDto {
   }
 
   get buttonMode(): string {
-    if (VBtnModesEnums.BORDER === this.mode) {
-      return `btn-${this.color}-${VBtnModesEnums.BORDER}`
-    } else if (VBtnModesEnums.LINK === this.mode) {
-      return `btn-${this.color}-${VBtnModesEnums.LINK}`
-    } else if (VBtnModesEnums.MONO === this.mode) {
-      return `btn-${this.color}-${VBtnModesEnums.MONO}`
+    if (ModesEnums.BORDER === this.mode) {
+      return `btn-${this.color}-${ModesEnums.BORDER}`
+    } else if (ModesEnums.LINK === this.mode) {
+      return `btn-${this.color}-${ModesEnums.LINK}`
+    } else if (ModesEnums.MONO === this.mode) {
+      return `btn-${this.color}-${ModesEnums.MONO}`
     } else {
       return `btn-${this.color}`
     }
