@@ -34,6 +34,8 @@
       ><span>Custom title</span></v-btn
     >
     <v-toggle v-model="test" />
+    <vs-button primary gradient> Active </vs-button>
+    <vs-textarea v-model="textarea" />
   </main>
 </template>
 
@@ -56,6 +58,7 @@ export default class IndexPage extends Vue {
   readonly iconsEnums = IconsEnums
 
   test: boolean = true
+  textarea: string = ''
 }
 </script>
 
